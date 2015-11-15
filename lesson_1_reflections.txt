@@ -1,0 +1,133 @@
+Git documentation https://git-scm.com/doc
+
+Git is a type of Version control.
+Commit is part of git through the reposiitory
+diff operates on commit
+clone  operates on the repository
+log is part of commit. Commits make up the log output
+Octopus is a strategy Git uses to combine many different versions of code together
+You are in 'detached HEAD' state
+HEAD is what Git calls the commit you are currently on. You can “detach” the HEAD by switching to a previous commit
+
+
+
+How did viewing a diff between two versions of a file help you see the bug that
+was introduced?
+
+    Diff pointed to the lines that had changed (removed and added) but it did not point to the exact change in the line
+
+How could having easy access to the entire history of a file make you a more
+efficient programmer in the long term?
+
+    It makes it much easier to find mistakes and revert to a previous version or fix them
+
+What do you think are the pros and cons of manually choosing when to create a
+commit, like you do in Git, vs having versions automatically saved, like Google
+docs does?
+
+    Pro: you are conscious of when it has been made. It wont save in the middle of a line that will not compile when run, small changes may get lost or not submitted in a long time, you will submit meaningful changes Con: you may forget and loose changes.
+
+Why do you think some version control systems, like Git, allow saving multiple
+files in one commit, while others, like Google Docs, treat each file separately?
+
+    Because Google Docs is a text editor, not a version control system. It's versioning capabilities are very reduced. Also, it cannot be accessed online and the history is lost when exporting the document to work with any other editor.
+
+How can you use the commands git log and git diff to view the history of files?
+
+    git log gives me a list of all the commits with a description of the changes and git diff allows to see the changes within the files.
+
+How might using version control make you more confident to make changes that
+could break something?
+
+    They are very easy and quick to revert and fix
+
+Now that you have your workspace set up, what do you want to try using Git for?
+
+    For my business' code and to see if I can use it for books and writing.
+How often to commit:
+  * Keep commits small
+  * one commit per logical change
+  
+
+git log --stat
+git log
+git diff foo (older commit, farther down) bar
+git --version
+git clone url
+git clone https://github.com/udacity/asteroids.git
+git config --global color.ui auto
+git checkout (reverts to previous commit temporarily)
+git master goes back to latest commit state before doing the checkout
+git revert
+git reset
+git reflog shows you all the commits that have been checked out recently
+
+
+*** TROUBLESHOOTING GUIDE ***
+https://storage.googleapis.com/supplemental_media/udacityu/2960778953/troubleshooting_guide.pdf
+
+If you’re having some trouble checking out a previous version of a commit, check to see if your
+error is covered here. If not, please post your question on the forums.
+You get the following error:
+error: Your local changes to the following files would be overwritten by checkout:
+game.js
+Please, commit your changes or stash them before you can switch branches.
+Aborting
+This message occurs if you’ve made changes to any of the files. Since these changes aren’t
+committed yet, if git checkout out a previous commit, they would be lost. You can see what
+changes you’ve made using the command git diff with no arguments. (If you don’t give git
+diff any arguments, it compares the current state of your files to the most recent commit.) If you
+don’t care about the changes, you can use git reset ­­hardto get rid of them, but be
+careful! This command cannot be undone.
+If you want to keep the changes, you can commit them, but first you’ll need to let git know your
+name and email address by entering the commands git config ­­global user.name
+"Your name"and git config ­­global user.email "youremail@domain.com".
+Then you can commit your changes using git commit ­a ­m "Commit message"where
+the commit message can be anything you want. The ­a flag means to commit all the changes
+you’ve made. You’ll see in Lesson 2 how to choose what to commit.
+If you forget to use the ­m flag, git will open a text editor for you to type a commit message. This
+editor will be vim, which can be confusing to use if you haven’t used it before. and if you haven’t
+used it before, it can be confusing. To quit vim, press the escape key, then type :q!You
+should see a message that says Aborting commit due to empty commit message.
+Now go ahead and try committing again, but this time remember the ­m flag.
+When you make the commit, you should get a message like [master 91ef3c2] Commit
+message.The string of letters and numbers is the beginning of your commit’s ID. You can use
+this to refer to your commit. For example, you can use git checkout 91ef3c2to get to this
+commit again.
+You can’t find a commit via git log
+git log only shows commits that were made before the commit you have currently checked out.
+If you want to see all the commits we saw at the beginning of the lesson, try using the command
+git checkout abcdef, which is the most recent commit. If you’ve made your own commit
+and can’t remember its commit ID, try using the command git reflog, which shows you all
+the commits that have been checked out recently. The strings of numbers and letters on the left
+of the reflog output are the beginnings of commit IDs, and you can use this prefix to refer to a
+commit just like you use the full ID.
+
+*** changes to bash as bashrc to home in linux or as bash_profile in mac*** as per https://www.udacity.com/course/viewer#!/c-ud775/l-2980038599/m-3333158951
+
+
+# Enable tab completion
+source ~/git-completion.bash
+
+# colors!
+green="\[\033[0;32m\]"
+blue="\[\033[0;34m\]"
+purple="\[\033[0;35m\]"
+reset="\[\033[0m\]"
+
+# Change command prompt
+source ~/git-prompt.sh
+export GIT_PS1_SHOWDIRTYSTATE=1
+# '\u' adds the name of the current user to the prompt
+# '\$(__git_ps1)' adds git-related stuff
+# '\W' adds the name of the current directory
+export PS1="$purple\u$green\$(__git_ps1)$blue \W $ $reset"
+
+
+Then you have to:
+Make your default editor
+git config --global core.editor "'/Applications/Sublime Text 2.app/Contents/SharedSupport/bin/subl' -n -w"
+
+Push changes upstream git to make them permanent
+git config --global push.default upstream
+git config --global merge.conflictstyle diff3
