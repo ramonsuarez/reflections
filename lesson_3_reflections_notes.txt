@@ -32,22 +32,31 @@ no staging area with remote.
 
 Create
 
-git remote add origin https://github.com/ramonsuarez/reflections.git
+  git remote add origin https://github.com/ramonsuarez/reflections.git
 
-ramon (master) reflections $ git remote -v
-origin  https://github.com/ramonsuarez/reflections.git (fetch)
-origin  https://github.com/ramonsuarez/reflections.git (push)
-ramon (master) reflections $ git push origin master
-Username for 'https://github.com': XXX
-Password for 'XXX':
-Counting objects: 15, done.
-Compressing objects: 100% (14/14), done.
-Writing objects: 100% (15/15), 129.62 KiB | 0 bytes/s, done.
-Total 15 (delta 5), reused 0 (delta 0)
-To https://github.com/ramonsuarez/reflections.git
- * [new branch]      master -> master
+Clone existing files into my local repo .
+  git clone github_repo_url
+
+Push my files to github:
+  ramon (master) reflections $ git remote -v
+  origin  https://github.com/ramonsuarez/reflections.git (fetch)
+  origin  https://github.com/ramonsuarez/reflections.git (push)
+  ramon (master) reflections $ git push origin master
+  Username for 'https://github.com': XXX
+  Password for 'XXX':
+  Counting objects: 15, done.
+  Compressing objects: 100% (14/14), done.
+  Writing objects: 100% (15/15), 129.62 KiB | 0 bytes/s, done.
+  Total 15 (delta 5), reused 0 (delta 0)
+  To https://github.com/ramonsuarez/reflections.git
+   * [new branch]      master -> master
 
 
 Pulling master updates files from github in my local repository
   git pull origin master
-  
+  git push origin master
+Fork is clone that github makes for you in your repository.
+
+When you clone a github repo github automatically sets up a remote pointing to the repo you cloned from.
+
+You can add colaborators in your github repos directly in github with their github user name.
