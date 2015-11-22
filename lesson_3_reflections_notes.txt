@@ -15,7 +15,7 @@ Describe the differences between forks, clones, and branches.  When would you us
 
 What is the benefit of having a copy of the last known state of the remote stored locally?
 
-    Fill in your answer here
+    You can work offline and when you update you can get the changes in remote as a branch with git fetch and then merge before pushing again.
 
 How would you collaborate without using Git or GitHub?  What would be easier, and what would be harder?
 
@@ -63,3 +63,16 @@ Fork is clone that github makes for you in your repository.
 When you clone a github repo github automatically sets up a remote pointing to the repo you cloned from.
 
 You can add colaborators in your github repos directly in github with their github user name.
+
+When you have a remote setup git stores local copies of all the remote branches.
+
+git fetch updates local copy of remote branch, interesting when there may be conflicts between local and remote.
+
+After fetch you can incorporate into master branch with merge.
+
+Pull does fetch and merge.
+  git pull origin master =
+    git fetch origin
+    git merge master origin/master
+
+Fast-forward merges: you merge two commits where one is an ancestor of the other. Takes label from history of branch and move it to tip.
