@@ -15,14 +15,17 @@ They are also good to work with others so that you can work in different feature
 How do the diagrams help you visualize the branch structure?
 They help see where the branches have separated and which commits are not reachable.
 
-What is the result of merging two branches together? Why do we represent it in
-the diagram the way we do?
+What is the result of merging two branches together? Why do we represent it in the diagram the way we do?
+Merging two branches together reduces the branches to one and integrates the code changes in that branch. The way they are represented in the diagran shows which are the parent commits and which commits are not reachable.
 
-What are the pros and cons of Git’s automatic merging vs. always doing merges
-manually?
+What are the pros and cons of Git’s automatic merging vs. always doing merges manually?
+Pro automatic: immediate changes made by git, no effort on my side
+Con automatic: I don't know what has been changed unless I look for it, magic.
+Pro manual: better knowledge of code changes and reasoning
+con manual: a lot of work, not always easy to understand
 
 
-
+***************
 Master is main branch in repository. Others have labels.
 
 tip of branch: current comit.
@@ -41,3 +44,12 @@ git checkout -b new_branch_name =
   git branch new_branch_name
   git checkout new_branch_name
 
+
+"merge branch into master" speak for merging a branch into the master.
+Merge is commit and keeps parents on both branches
+
+Deleting branch before commiting as merge  deletes all commits in that branch; after the merge it just deletes the label and commits are merged into the main branch.
+
+To delete branch = git branch -d branch_name
+
+Commits in merge show by time.
