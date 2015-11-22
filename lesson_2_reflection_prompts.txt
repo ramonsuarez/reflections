@@ -3,16 +3,41 @@ What happens when you initialize a repository? Why do you need to do it?
 How is the staging area different from the working directory and the repository?
 What value do you think it offers?
 
-How can you use the staging area to make sure you have one commit per logical
-change?
+How can you use the staging area to make sure you have one commit per logical change?
+By adding only the files that have changed related to that logical change using git add and then commiting only those files with the appropriate message.
 
-What are some situations when branches would be helpful in keeping your history
-organized? How would branches help?
+What are some situations when branches would be helpful in keeping your history organized? How would branches help?
+When you want to make new versions of the program or test experimental new features. Branches keep the versions and experiments out of the master branch and if they work fine can be merged afterwards.
+Udacity coder uses a branch for every different piece of work, every time he does something different, with a development branch and a production branch (master). It is a context change. Good to collaborate with others and yourself.
+
+They are also good to work with others so that you can work in different features separately at the same time.
 
 How do the diagrams help you visualize the branch structure?
+They help see where the branches have separated and which commits are not reachable.
 
 What is the result of merging two branches together? Why do we represent it in
 the diagram the way we do?
 
 What are the pros and cons of Git’s automatic merging vs. always doing merges
 manually?
+
+
+
+Master is main branch in repository. Others have labels.
+
+tip of branch: current comit.
+
+Combining two branches = merging
+
+Change branch you are working on: git checkout foo
+
+remote branch is one you have not created yourself
+
+ to see the visual representation of the commit history is git log --graph --oneline branch1 branch2
+
+HEAD means current commit
+
+git checkout -b new_branch_name =
+  git branch new_branch_name
+  git checkout new_branch_name
+
